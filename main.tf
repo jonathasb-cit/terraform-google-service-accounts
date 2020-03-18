@@ -100,5 +100,6 @@ resource "google_organization_iam_member" "organization_viewer" {
 # keys
 resource "google_service_account_key" "keys" {
   for_each           = var.generate_keys ? local.names : toset([])
-  service_account_id = google_service_account.service_accounts[each.value].email
+  service_account_id = google_service_account.service_accounts[each.value].email  
+  private_key_type   = var.private_key_type  
 }

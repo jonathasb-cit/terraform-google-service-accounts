@@ -69,7 +69,7 @@ data "template_file" "keys" {
   template = "$${key}"
 
   vars = {
-    key = var.generate_keys ? base64decode(google_service_account_key.keys[each.value].private_key) : ""
+    key = var.generate_keys ? var.private_key_type == "TYPE_GOOGLE_CREDENTIALS_FILE" ? base64decode(google_service_account_key.keys[each.value].private_key) : google_service_account_key.keys[each.value].private_key : ""
   }
 }
 
