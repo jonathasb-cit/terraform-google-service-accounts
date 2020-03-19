@@ -69,7 +69,7 @@ variable "generate_keys" {
 
 variable "private_key_type" {
   type        = string
-  description = "Service account private key type"
+  description = "Service account private key type, e.g. TYPE_GOOGLE_CREDENTIALS_FILE, TYPE_PKCS12_FILE"
   default     = "TYPE_GOOGLE_CREDENTIALS_FILE"
 }
 
