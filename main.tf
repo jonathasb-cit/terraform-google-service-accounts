@@ -93,5 +93,6 @@ resource "google_organization_iam_member" "organization_viewer" {
 resource "google_service_account_key" "keys" {
   count              = var.generate_keys ? length(var.names) : 0
   service_account_id = google_service_account.service_accounts[count.index].email
+  private_key_type   = var.private_key_type
 }
 
